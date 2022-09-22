@@ -1,3 +1,4 @@
+from venv import create
 from lxml import etree
 import random
 import uuid
@@ -284,30 +285,99 @@ nesting = "global"
 
 abbreviate=True
 
+def load_common_concept(path):
+  with open(path) as f:
+    common_concept = json.load(f)
+  return common_concept
+
+
+def load_aml_file(path):
+  aml_file= etree.parse(path, parser)
+  aml_file= aml_file.getroot()
+  return aml_file  
+
+class AML_Dict(dict):
+  def create_from_aml(self, aml_file, common_concept):
+    pass
+
+  def create_from_dict(self, dict):
+    pass
+
+  def store_as_json(self, output_path):
+    with open(output_path, "w", encoding="utf-8") as outfile:
+      json.dump(json_dct, outfile, ensure_ascii=False)
+  
+
+def create_key_dictionary():
+  key_dict = {}
+  #Create Keys
+  for object_element in common_concept:
+    object_concept = common_concept[object_element]
+    tag_list = object_concept["tags"] #Tags of the element
+    attribute_list = object_concept["attributes"] #Tags of the element
+    key_dict[object_element]= list(tag_list) + list(attribute_list) 
+  return key_dict
+
 
 if __name__ == '__main__':
-    with open("config.json") as f:
-        common_concept = json.load(f)
-    aml_file= etree.parse(r'./Examples/Testbed.aml', parser)
-    aml_file= aml_file.getroot()  
-    json_dct= aml_file.to_json(common_concept)
-    with open("Testbed.json", "w", encoding="utf-8") as outfile:
-        json.dump(json_dct, outfile, ensure_ascii=False)
-    compressed_json_dct= aml_file.global_to_json(common_concept)
-    #with open("keys.json") as f:
-    #  keys = json.load(f)
-    #compressed_json_dct["keys"]= keys 
-    #Step 3: Append Key-Dictionary
-    f = open('meta.yaml', 'w+')
-    yaml.dump(json_dct, f, allow_unicode=True)
-    f = open('compressed_meta.yaml', 'w+')
-    yaml.dump(compressed_json_dct, f, allow_unicode=True)
+  common_concept = load_common_concept("config.json")
+  aml_file = load_aml_file(r'./Examples/Testanlage.aml')
 
-    with open("Testbed_global.json", "w", encoding="utf-8") as outfile:
-        json.dump(json_dct, outfile, ensure_ascii=False, indent=1)
-    test_file = CAEXFile()
-    test_file.create_from_json(common_concept, json_dct)
+  #Create Normal AML-JSON File
+  json_dct= aml_file.to_json(common_concept)
+  with open("output.json", "w", encoding="utf-8") as outfile:
+      json.dump(json_dct, outfile, ensure_ascii=False, indent=1)
+  print("Created normal file")
 
-    doc = etree.ElementTree(test_file)
-    outFile = open('Testbed.xml', 'w')
-    doc.write('Testbed.xml', xml_declaration=False, encoding='utf-16') 
+  
+  #Create Compressed AML-JSON File
+  compressed_json_dct= aml_file.global_to_json(common_concept)
+  keys = create_key_dictionary()
+  compressed_json_dct["keys"]= keys 
+  with open("output_global.json", "w", encoding="utf-8") as outfile:
+    json.dump(compressed_json_dct, outfile, ensure_ascii=False)
+  print("Created compressed file")
+
+  #Create YAML-File because we can
+  f = open('meta.yaml', 'w+')
+  yaml.dump(json_dct, f, allow_unicode=True)
+  print("Created normal file")
+  f = open('compressed_meta.yaml', 'w+')
+  yaml.dump(compressed_json_dct, f, allow_unicode=True)
+  print("Created compressed file")
+
+  #Create AML from JSON
+  test_file = CAEXFile()
+  test_file.create_from_json(common_concept, json_dct)
+  doc = etree.ElementTree(test_file)
+  print("Created element tree")
+  outFile = open('output.xml', 'w')
+  doc.write('output.xml', xml_declaration=False, encoding='utf-16') 
+  print("Created aml")
+
+  with open("config.json") as f:
+      common_concept = json.load(f)
+  aml_file= etree.parse(r'./Examples/Testbed.aml', parser)
+  aml_file= aml_file.getroot()  
+  json_dct= aml_file.to_json(common_concept)
+  with open("Testbed.json", "w", encoding="utf-8") as outfile:
+      json.dump(json_dct, outfile, ensure_ascii=False)
+  compressed_json_dct= aml_file.global_to_json(common_concept)
+  #with open("keys.json") as f:
+  #  keys = json.load(f)
+  #compressed_json_dct["keys"]= keys 
+  #Step 3: Append Key-Dictionary
+  f = open('meta.yaml', 'w+')
+  yaml.dump(json_dct, f, allow_unicode=True)
+  f = open('compressed_meta.yaml', 'w+')
+  yaml.dump(compressed_json_dct, f, allow_unicode=True)
+
+  with open("Testbed_global.json", "w", encoding="utf-8") as outfile:
+      json.dump(json_dct, outfile, ensure_ascii=False, indent=1)
+  test_file = CAEXFile()
+  test_file.create_from_json(common_concept, json_dct)
+
+  doc = etree.ElementTree(test_file)
+  outFile = open('Testbed.xml', 'w')
+  doc.write('Testbed.xml', xml_declaration=False, encoding='utf-16') 
+
