@@ -1,0 +1,4 @@
+compressed: False #Normal JSON Format: False; Compressed Format: True
+abbreviations: False # Usage of abbreviations
+add_missing_ID: False # Add ID's for classes that miss one
+delete_unused_classes: False # Delete unused classes

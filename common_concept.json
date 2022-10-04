@@ -1,0 +1,285 @@
+{
+  "AdditionalData": {
+    "abbreviation": "AddData",
+    "fullname": "AdditionalData",
+    "attributes": [],
+    "children": ["AutomationMLVersion", "WriterHeader"],
+    "multi": true,
+    "tags": []
+  },
+  "AdditionalInformation": {
+    "abbreviation": "AddInf",
+    "fullname": "AdditionalInformation",
+    "attributes": [],
+    "children": ["WriterHeader"],
+    "multi": true,
+    "tags": ["AutomationMLVersion", "UserDefined", "AMLV"]
+  },
+  "Attribute": {
+    "abbreviation": "Attr",
+    "fullname": "Attribute",
+    "attributes": ["Value", "Description", "DefaultValue", "RefSemantic"],
+    "children": ["Attribute", "Constraint"],
+    "multi": true,
+    "tags": ["Name", "ID", "AttributeDataType", "Unit", "ChangeMode"]
+  },
+  "AttributeNameMapping": {
+    "abbreviation": "AttrNameMapp",
+    "fullname": "AttributeNameMapping",
+    "attributes": [],
+    "children": [],
+    "multi": true,
+    "tags": []
+  },
+  "AutomationMLVersion": {
+    "abbreviation": "AMLV",
+    "fullname": "AutomationMLVersion",
+    "attributes": [],
+    "children": [],
+    "multi": false,
+    "tags": []
+  },
+  "CAEXFile": {
+    "abbreviation": "CAEXFile",
+    "fullname": "CAEXFile",
+    "attributes": "",
+    "children": [
+      "AdditionalInformation",
+      "AdditionalData",
+      "InstanceHierarchy",
+      "InterfaceClassLib",
+      "RoleClassLib",
+      "SystemUnitClassLib"
+    ],
+    "multi": false,
+    "tags": [
+      "FileName",
+      "SchemaVersion",
+      "xmlns:xsi",
+      "xsi:noNamespaceSchemaLocation"
+    ]
+  },
+
+  "Constraint": {
+    "abbreviation": "Cons",
+    "fullname": "Constraint",
+    "attributes": "",
+    "children": ["NominalScaledType", "OrdinalScaledType", "UnknownType"],
+    "multi": false,
+    "tags": ["name"]
+  },
+
+  "NominalScaledType": {
+    "abbreviation": "NST",
+    "fullname": "NominalScaledType",
+    "attributes": ["RequiredValue"],
+    "children": [],
+    "multi": true,
+    "tags": []
+  },
+
+  "OrdinalScaledType": {
+    "abbreviation": "OST",
+    "fullname": "OrdinalScaledType",
+    "attributes": ["RequiredValue"],
+    "children": [],
+    "multi": true,
+    "tags": []
+  },
+
+  "UnknownType": {
+    "abbreviation": "UT",
+    "fullname": "UnknownType",
+    "attributes": ["RequiredValue"],
+    "children": [],
+    "multi": true,
+    "tags": []
+  },
+
+  "ExternalInterface": {
+    "abbreviation": "EI",
+    "fullname": "ExternalInterface",
+    "attributes": [],
+    "children": ["InternalElement", "Attribute"],
+    "multi": true,
+    "tags": ["Name", "ID", "RefBaseClassPath", "ChangeMode"],
+    "sorted": ["Name", "ID", "ChangeMode", "RefBaseClassPath", "AMLHeader"]
+  },
+
+  "InstanceHierarchy": {
+    "abbreviation": "IH",
+    "fullname": "InstanceHierarchy",
+    "attributes": ["Version"],
+    "children": ["InternalElement"],
+    "multi": true,
+    "tags": ["Name", "ID"]
+  },
+  "InterfaceClass": {
+    "abbreviation": "IC",
+    "fullname": "InterfaceClass",
+    "attributes": ["Description", "AdditionalInformation"],
+    "children": ["Attribute", "InterfaceClass"],
+    "multi": true,
+    "tags": ["Name", "ID", "RefBaseClassPath"]
+  },
+  "InterfaceClassLib": {
+    "abbreviation": "ICL",
+    "fullname": "InterfaceClassLib",
+    "attributes": ["Description", "Version", "Copyright"],
+    "children": ["InterfaceClass"],
+    "multi": true,
+    "tags": ["Name", "ID", "ChangeMode"]
+  },
+  "InterfaceNameMapping": {
+    "abbreviation": "INM",
+    "fullname": "InterfaceNameMapping",
+    "attributes": [],
+    "children": [],
+    "multi": true,
+    "tags": []
+  },
+  "InternalElement": {
+    "abbreviation": "IE",
+    "fullname": "InternalElement",
+    "attributes": [
+      "Description",
+      "Version",
+      "Copyright",
+      "AdditionalInformation"
+    ],
+    "children": [
+      "Revision",
+      "MappingObject",
+      "RoleRequirement",
+      "RoleRequirements",
+      "InternalElement",
+      "Attribute",
+      "ExternalInterface",
+      "SupportedRoleClass",
+      "InternalLink"
+    ],
+    "multi": true,
+    "tags": ["Name", "ID", "RefBaseSystemUnitPath", "ChangeMode"],
+    "sorted": ["Name", "ID", "ChangeMode", "RefBaseSystemUnitPath", "AMLHeader"]
+  },
+  "InternalLink": {
+    "abbreviation": "IL",
+    "fullname": "InternalLink",
+    "attributes": [],
+    "children": [],
+    "multi": true,
+    "tags": ["Name", "ID", "RefPartnerSideA", "RefPartnerSideB"]
+  },
+  "MappingObject": {
+    "abbreviation": "MO",
+    "fullname": "MappingObject",
+    "attributes": [],
+    "children": ["AttributeNameMapping", "InterfaceNameMapping"],
+    "multi": false,
+    "tags": []
+  },
+  "RefSemantic": {
+    "abbreviation": "RS",
+    "fullname": "RefSemantic",
+    "attributes": [],
+    "children": [],
+    "multi": true,
+    "tags": ["CorrespondingAttributePath", "ChangeMode"]
+  },
+  "Revision": {
+    "abbreviation": "Rev",
+    "fullname": "Revision",
+    "attributes": [
+      "RevisionDate",
+      "OldVersion",
+      "NewVersion",
+      "AuthorName",
+      "Comment"
+    ],
+    "children": ["MappingObject"],
+    "multi": true,
+    "tags": ["RefRoleClassPath"]
+  },
+  "RoleClass": {
+    "abbreviation": "RC",
+    "fullname": "RoleClass",
+    "attributes": ["Revision"],
+    "children": ["Attribute", "ExternalInterface", "RoleClass"],
+    "multi": true,
+    "tags": ["Name", "ID", "RefBaseClassPath", "ChangeMode"]
+  },
+  "RoleClassLib": {
+    "abbreviation": "RCL",
+    "fullname": "RoleClassLib",
+    "attributes": ["Description", "Version"],
+    "children": ["RoleClass"],
+    "multi": true,
+    "tags": ["Name", "ID", "ChangeMode"]
+  },
+  "RoleRequirement": {
+    "abbreviation": "RR",
+    "fullname": "RoleRequirement",
+    "attributes": [],
+    "children": [],
+    "multi": true,
+    "tags": []
+  },
+  "RoleRequirements": {
+    "abbreviation": "RR",
+    "fullname": "RoleRequirements",
+    "attributes": [],
+    "children": [],
+    "multi": true,
+    "tags": ["RefBaseRoleClassPath"]
+  },
+  "SupportedRoleClass": {
+    "abbreviation": "SRC",
+    "fullname": "SupportedRoleClass",
+    "attributes": [],
+    "children": ["MappingObject"],
+    "multi": true,
+    "tags": ["RefRoleClassPath"]
+  },
+
+  "SystemUnitClass": {
+    "abbreviation": "SUC",
+    "fullname": "SystemUnitClass",
+    "attributes": [],
+    "children": [
+      "InternalElement",
+      "Attribute",
+      "ExternalInterface",
+      "SupportedRoleClass",
+      "InternalLink",
+      "SystemUnitClass"
+    ],
+    "multi": true,
+    "tags": ["Name", "ID", "RefBaseClassPath", "ChangeMode"]
+  },
+  "SystemUnitClassLib": {
+    "abbreviation": "SUCL",
+    "fullname": "SystemUnitClassLib",
+    "attributes": ["Version"],
+    "children": ["SystemUnitClass"],
+    "multi": true,
+    "tags": ["Name", "ID"]
+  },
+  "WriterHeader": {
+    "abbreviation": "WH",
+    "fullname": "WriterHeader",
+    "attributes": [
+      "WriterName",
+      "WriterID",
+      "WriterVendor",
+      "WriterVendorURL",
+      "WriterVersion",
+      "WriterRelease",
+      "LastWritingDateTime",
+      "WriterProjectTitle",
+      "WriterProjectID"
+    ],
+    "children": [],
+    "multi": false,
+    "tags": []
+  }
+}

@@ -1,4 +1,5 @@
-﻿<CAEXFile SchemaVersion="2.15" FileName="PPRExample_AMLJsonWG.aml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="CAEX_ClassModel_V2.15.xsd">
+﻿<CAEXFile SchemaVersion="2.15" FileName="PPRExample_AMLJsonWG.aml"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="CAEX_ClassModel_V2.15.xsd">
   <AdditionalInformation AutomationMLVersion="2.0" />
   <AdditionalInformation>
     <WriterHeader>

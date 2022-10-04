@@ -1,0 +1,249 @@
+{
+ "keys": [
+  "FileName",
+  "SchemaVersion",
+  "{http://www.w3.org/2001/XMLSchema-instance}noNamespaceSchemaLocation",
+  "AttributeTypeLib"
+ ],
+ "values": [
+  "Testbed.aml",
+  "2.15",
+  "CAEX_ClassModel_V2.15.xsd",
+  null
+ ],
+ "IH": [
+  {
+   "keys": [
+    "Name",
+    "Version"
+   ],
+   "values": [
+    "Testbed",
+    "1.0.0"
+   ],
+   "IE": [
+    {
+     "keys": [
+      "Name",
+      "ID"
+     ],
+     "values": [
+      "PythonPreamble",
+      "13706026-d427-47f5-84c1-ed3e9ec250e8"
+     ],
+     "RR": [
+      {
+       "keys": [
+        "RefBaseRoleClassPath"
+       ],
+       "values": [
+        "AutomationMLBaseRoleClassLib/AutomationMLBaseRole"
+       ]
+      }
+     ],
+     "EI": [
+      {
+       "keys": [
+        "Name",
+        "ID"
+       ],
+       "values": [
+        "File",
+        "3b0a32db-019a-40fa-8038-81a491879877"
+       ],
+       "Attr": [
+        {
+         "keys": [
+          "Name",
+          "AttributeDataType",
+          "Value"
+         ],
+         "values": [
+          "refURI",
+          "xs:string",
+          "./preamble.py"
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "keys": [
+      "Name",
+      "ID"
+     ],
+     "values": [
+      "ControlSystem",
+      "59c87727-27be-48a5-873c-ac596f3e43a8"
+     ],
+     "IE": [
+      {
+       "keys": [
+        "Name",
+        "ID"
+       ],
+       "values": [
+        "MES",
+        "7db1638e-53ab-41e0-a676-0e31d1e9d84a"
+       ],
+       "Attr": [
+        {
+         "keys": [
+          "Name",
+          "AttributeDataType",
+          "RefAttributeType",
+          "comment",
+          "Value"
+         ],
+         "values": [
+          "Configuration",
+          "xs:string",
+          "PyAMLLib/PythonExpression",
+          null,
+          "\"Configuration is set to {0}\".format(configuration)"
+         ]
+        },
+        {
+         "keys": [
+          "Name",
+          "AttributeDataType",
+          "RefAttributeType",
+          "comment",
+          "Value"
+         ],
+         "values": [
+          "ERPAddress",
+          "xs:string",
+          "PyAMLLib/PythonExpression",
+          null,
+          "\"{0}:6656\".format(ancestors[2].get_child_by_name('ERP').get_child_by_name('Address').text())"
+         ]
+        },
+        {
+         "keys": [
+          "Name",
+          "AttributeDataType",
+          "RefAttributeType",
+          "comment",
+          "Value"
+         ],
+         "values": [
+          "Addition",
+          "xs:string",
+          "PyAMLLib/PythonExpression",
+          null,
+          "\"Result is {0}\".format(add2(2))"
+         ]
+        },
+        {
+         "keys": [
+          "Name",
+          "AttributeDataType",
+          "RefAttributeType",
+          "comment",
+          "Value"
+         ],
+         "values": [
+          "CurrentTime",
+          "xs:string",
+          "PyAMLLib/PythonExpression",
+          null,
+          "lambda *args, ancestors=ancestors, ctime=ctime, **kwargs: \"Current date and time is: {0}\".format(ctime())"
+         ]
+        },
+        {
+         "keys": [
+          "Name",
+          "AttributeDataType",
+          "RefAttributeType",
+          "comment",
+          "Value"
+         ],
+         "values": [
+          "InputData",
+          "xs:string",
+          "PyAMLLib/PythonExpression",
+          null,
+          "lambda *args, data, ancestors=ancestors, **kwargs: \"The data passed to {0}: {1}\".format(ancestors[1].get('Name'), data)"
+         ]
+        }
+       ]
+      },
+      {
+       "keys": [
+        "Name",
+        "ID"
+       ],
+       "values": [
+        "ERP",
+        "1f8b963e-f9a3-4eec-b065-4b32ee84c98a"
+       ],
+       "Attr": [
+        {
+         "keys": [
+          "Name",
+          "AttributeDataType",
+          "Value"
+         ],
+         "values": [
+          "Address",
+          "xs:string",
+          "http://ciirc.cvut.cz"
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "keys": [
+      "Name",
+      "ID"
+     ],
+     "values": [
+      "PythonPreamble",
+      "13706026-d427-47f5-84c1-ed3e9ec250e8"
+     ],
+     "RR": [
+      {
+       "keys": [
+        "RefBaseRoleClassPath"
+       ],
+       "values": [
+        "AutomationMLBaseRoleClassLib/AutomationMLBaseRole"
+       ]
+      }
+     ],
+     "EI": [
+      {
+       "keys": [
+        "Name",
+        "ID"
+       ],
+       "values": [
+        "File",
+        "3b0a32db-019a-40fa-8038-81a491879877"
+       ],
+       "Attr": [
+        {
+         "keys": [
+          "Name",
+          "AttributeDataType",
+          "Value"
+         ],
+         "values": [
+          "refURI",
+          "xs:string",
+          "./preamble.py"
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "AttributeKeys": {}
+}

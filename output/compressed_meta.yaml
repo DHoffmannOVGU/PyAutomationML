@@ -1,0 +1,161 @@
+IH:
+- IE:
+  - EI:
+    - Attr:
+      - values:
+        - refURI
+        - ''
+        - xs:string
+        - ''
+        - ''
+        - ./preamble.py
+        - ''
+        - ''
+        - ''
+      values:
+      - File
+      - 3b0a32db-019a-40fa-8038-81a491879877
+      - ''
+      - ''
+    RR:
+    - values:
+      - AutomationMLBaseRoleClassLib/AutomationMLBaseRole
+    values:
+    - PythonPreamble
+    - 13706026-d427-47f5-84c1-ed3e9ec250e8
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+  - IE:
+    - Attr:
+      - values:
+        - Configuration
+        - ''
+        - xs:string
+        - ''
+        - ''
+        - '"Configuration is set to {0}".format(configuration)'
+        - ''
+        - ''
+        - ''
+      - values:
+        - ERPAddress
+        - ''
+        - xs:string
+        - ''
+        - ''
+        - '"{0}:6656".format(ancestors[2].get_child_by_name(''ERP'').get_child_by_name(''Address'').text())'
+        - ''
+        - ''
+        - ''
+      - values:
+        - Addition
+        - ''
+        - xs:string
+        - ''
+        - ''
+        - '"Result is {0}".format(add2(2))'
+        - ''
+        - ''
+        - ''
+      - values:
+        - CurrentTime
+        - ''
+        - xs:string
+        - ''
+        - ''
+        - 'lambda *args, ancestors=ancestors, ctime=ctime, **kwargs: "Current date
+          and time is: {0}".format(ctime())'
+        - ''
+        - ''
+        - ''
+      - values:
+        - InputData
+        - ''
+        - xs:string
+        - ''
+        - ''
+        - 'lambda *args, data, ancestors=ancestors, **kwargs: "The data passed to
+          {0}: {1}".format(ancestors[1].get(''Name''), data)'
+        - ''
+        - ''
+        - ''
+      values:
+      - MES
+      - 7db1638e-53ab-41e0-a676-0e31d1e9d84a
+      - ''
+      - ''
+      - ''
+      - ''
+      - ''
+      - ''
+    - Attr:
+      - values:
+        - Address
+        - ''
+        - xs:string
+        - ''
+        - ''
+        - http://ciirc.cvut.cz
+        - ''
+        - ''
+        - ''
+      values:
+      - ERP
+      - 1f8b963e-f9a3-4eec-b065-4b32ee84c98a
+      - ''
+      - ''
+      - ''
+      - ''
+      - ''
+      - ''
+    values:
+    - ControlSystem
+    - 59c87727-27be-48a5-873c-ac596f3e43a8
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+  - EI:
+    - Attr:
+      - values:
+        - refURI
+        - ''
+        - xs:string
+        - ''
+        - ''
+        - ./preamble.py
+        - ''
+        - ''
+        - ''
+      values:
+      - File
+      - 3b0a32db-019a-40fa-8038-81a491879877
+      - ''
+      - ''
+    RR:
+    - values:
+      - AutomationMLBaseRoleClassLib/AutomationMLBaseRole
+    values:
+    - PythonPreamble
+    - 13706026-d427-47f5-84c1-ed3e9ec250e8
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+  values:
+  - Testbed
+  - ''
+  - 1.0.0
+values:
+- Testbed.aml
+- '2.15'
+- ''
+- ''
