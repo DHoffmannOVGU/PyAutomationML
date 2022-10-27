@@ -1,0 +1,370 @@
+{
+    "values": ["PPRExample_AMLJsonWG.aml", "2.15", "", ""],
+    "AddInf": [{
+        "values": ["2.0", "", ""]
+    }, {
+        "values": ["", "", ""],
+        "WH": {
+            "values": ["AutomationML Editor", "916578CA-FE0D-474E-A4FC-9E1719892369", "AutomationML e.V.", "www.AutomationML.org", "5.3.3.0", "5.3.3.0", "2022-05-25T12:09:42.7724342", "unspecified", "unspecified"]
+        }
+    }],
+    "IH": [{
+            "values": ["PPRExampleInstanceHierarchy", "", "0"],
+            "IE": [{
+                    "values": ["Project", "788113b0-0a27-43dc-a1ac-287c57198a2a", "", "change", "This is the example priject used by AML Json WG to demonstrate the XML -> jsn mapping.", "0.2", "AML json WG", "This is just an example of an additional information."],
+                    "Rev": [{
+                        "values": ["", "2022-05-25T12:06:49.8329934+02:00", "0.1", "0.2", "AML Json WG", "A comment is required"]
+                    }],
+                    "RR": [{
+                        "values": ["AutomationMLBaseRoleClassLib/AutomationMLBaseRole"]
+                    }],
+
+                    "IE": [{
+                        "values": ["Screw", "ad5db25c-0f73-4e9f-8782-0ca28e319c43", "PPRSUCL/PPRProductSUC", "", "", "", "", ""],
+                        "RR": [{
+                            "values": ["PPRRCL/PPRProduct"]
+                        }],
+                        "Attr": [{
+                            "values": ["Vendor", "", "xs:string", "", "", "ScrewVendor", "Vendor of the resource", "", ""]
+                        }, {
+                            "values": ["Type", "", "xs:string", "", "", "M8", "Type of the resource", "", ""]
+                        }],
+                        "EI": [{
+                            "values": "..."
+                        }]
+                    }],
+
+                    {
+                        "values": ["RelatedProcess", "92cb2e82-03c0-4b8a-9da7-e1c1bc5c488a", "PPRICL/ProductProcessRelation", ""],
+                        "Attr": [{
+                            "values": ["InOut", "", "xs:string", "", "", "IN", "Product is input or output of process", "", ""]
+                        }]
+                    }]
+            },
+
+
+            {
+                "values": ["Plate", "65a6ac4c-e383-442f-a01c-9e6f00219f6a", "PPRSUCL/PPRProductSUC", "", "", "", "", ""],
+                "RR": [{
+                    "values": ["PPRRCL/PPRProduct"]
+                }],
+                "Attr": [{
+                    "values": ["Vendor", "", "xs:string", "", "", "PlateVendor", "Vendor of the resource", "", ""]
+                }, {
+                    "values": ["Type", "", "xs:string", "", "", "116mm-Steel", "Type of the resource", "", ""]
+                }],
+                "EI": [{
+                    "values": ["RelatedProcess", "73e89349-a9d2-4a1a-8eea-0a729e98b01f", "PPRICL/ProductProcessRelation", ""],
+                    "Attr": [{
+                        "values": ["InOut", "", "xs:string", "", "", "IN", "Product is input or output of process", "", ""]
+                    }]
+                }]
+            },
+
+
+            {
+                "values": ["PlateWithScrew", "9cd21d7a-8d2a-4332-8fce-97711c9013e7", "PPRSUCL/PPRProductSUC", "", "", "", "", ""],
+                "RR": [{
+                    "values": ["PPRRCL/PPRProduct"]
+                }],
+                "Attr": [{
+                    "values": ["Vendor", "", "xs:string", "", "", "OwnCompany", "Vendor of the resource", "", ""]
+                }, {
+                    "values": ["Type", "", "xs:string", "", "", "OwnProduct", "Type of the resource", "", ""]
+                }],
+                "EI": [{
+                    "values": ["RelatedProcess", "92fccf8a-58e8-442b-8e06-f250469f34ef", "PPRICL/ProductProcessRelation", ""],
+                    "Attr": [{
+                        "values": ["InOut", "", "xs:string", "", "", "OUT", "Product is input or output of process", "", ""]
+                    }]
+                }]
+            },
+            {
+                "values": ["Screwing", "d9181c32-c952-46da-b6c3-ff1bcdf00539", "PPRSUCL/PPRProcessSUC", "", "", "", "", ""],
+                "RR": [{
+                    "values": ["PPRRCL/PPRProcess"]
+                }],
+                "Attr": [{
+                    "values": ["Type", "", "xs:string", "", "", "ForceControlledScrewing", "Type of the resource", "", ""]
+                }, {
+                    "values": ["Duration", "", "xs:int", "s", "", "", "Duration of the process", "", ""]
+                }],
+                "EI": [{
+                    "values": ["Output", "29adbe5b-25e4-4920-8539-8a48cb961e55", "PPRICL/ProductProcessRelation", ""],
+                    "Attr": [{
+                        "values": ["InOut", "", "xs:string", "", "", "OUT", "Product is input or output of process", "", ""]
+                    }]
+                }, {
+                    "values": ["RelatedRessource", "372b6a92-79ea-4caf-8c09-20fa76db176d", "PPRICL/ProcessRessourceRelation", ""]
+                }, {
+                    "values": ["Input1", "087b34a1-8c19-4dc3-aa70-8ca474d4b61a", "PPRICL/ProductProcessRelation", ""],
+                    "Attr": [{
+                        "values": ["InOut", "", "xs:string", "", "", "IN", "Product is input or output of process", "", ""]
+                    }]
+                }, {
+                    "values": ["Input2", "ccd19d4f-f12c-45ca-8652-08533ebfacdd", "PPRICL/ProductProcessRelation", ""],
+                    "Attr": [{
+                        "values": ["InOut", "", "xs:string", "", "", "IN", "Product is input or output of process", "", ""]
+                    }]
+                }]
+            },
+            {
+                "values": ["Screwdriver", "a8512afa-10d9-429f-a640-8e8926f0c6bd", "PPRSUCL/PPRRessouceSUC", "", "", "", "", ""],
+                "RR": [{
+                    "values": ["PPRRCL/PPRRessouce"]
+                }],
+                "Attr": [{
+                    "values": ["Vendor", "", "xs:string", "", "", "ScrewDriverVendor", "Vendor of the resource", "", ""]
+                }, {
+                    "values": ["Type", "", "xs:string", "", "", "Electrical Screw Driver", "Type of the resource", "", ""]
+                }],
+                "EI": [{
+                    "values": ["ExecutableProcess", "b609a480-b575-4c33-8ad9-72c59c5841a3", "PPRICL/ProcessRessourceRelation", ""]
+                }]
+            }], "IL": [{
+            "values": ["UsedScrew", "", "ad5db25c-0f73-4e9f-8782-0ca28e319c43:RelatedProcess", "d9181c32-c952-46da-b6c3-ff1bcdf00539:Input1"]
+        }, {
+            "values": ["UsedPlate", "", "65a6ac4c-e383-442f-a01c-9e6f00219f6a:RelatedProcess", "d9181c32-c952-46da-b6c3-ff1bcdf00539:Input2"]
+        }, {
+            "values": ["ProcessResult", "", "d9181c32-c952-46da-b6c3-ff1bcdf00539:Output", "9cd21d7a-8d2a-4332-8fce-97711c9013e7:RelatedProcess"]
+        }, {
+            "values": ["RessourceLink", "", "a8512afa-10d9-429f-a640-8e8926f0c6bd:ExecutableProcess", "d9181c32-c952-46da-b6c3-ff1bcdf00539:RelatedRessource"]
+        }]
+    }]
+}], "ICL": [{
+    "values": ["AutomationMLInterfaceClassLib", "", "state", "Standard Automation Markup Language Interface Class Library - Part 1 Content ", "2.10", "AutomationML e.V."],
+    "IC": [{
+        "values": ["AutomationMLBaseInterface", "", "", "", ""],
+        "IC": [{
+            "values": ["Order", "", "AutomationMLInterfaceClassLib/AutomationMLBaseInterface", "", ""],
+            "Attr": [{
+                "values": ["Direction", "", "xs:string", "", "", "", "", "InOut", ""],
+                "Cons": {
+                    "values": [""],
+                    "NST": [{
+                        "values": ["In"]
+                    }]
+                }
+            }]
+        }, {
+            "values": ["Port", "", "AutomationMLInterfaceClassLib/AutomationMLBaseInterface", "", ""],
+            "Attr": [{
+                "values": ["Direction", "", "xs:string", "", "", "", "", "", ""],
+                "Cons": {
+                    "values": [""],
+                    "NST": [{
+                        "values": ["In"]
+                    }]
+                }
+            }, {
+                "values": ["Cardinality", "", "", "", "", "", "", "", ""],
+                "Attr": [{
+                    "values": ["MinOccur", "", "xs:unsignedInt", "", "", "", "", "", ""]
+                }, {
+                    "values": ["MaxOccur", "", "xs:unsignedInt", "", "", "", "", "", ""]
+                }]
+            }, {
+                "values": ["Category", "", "xs:string", "", "", "", "", "", ""]
+            }]
+        }, {
+            "values": ["PPRConnector", "", "AutomationMLInterfaceClassLib/AutomationMLBaseInterface", "", ""]
+        }, {
+            "values": ["ExternalDataConnector", "", "AutomationMLInterfaceClassLib/AutomationMLBaseInterface", "", ""],
+            "Attr": [{
+                "values": ["refURI", "", "xs:anyURI", "", "", "", "", "", ""]
+            }],
+            "IC": [{
+                "values": ["COLLADAInterface", "", "AutomationMLInterfaceClassLib/AutomationMLBaseInterface/ExternalDataConnector", "", ""],
+                "Attr": [{
+                    "values": ["refType", "", "xs:string", "", "", "", "", "", ""]
+                }, {
+                    "values": ["target", "", "xs:token", "", "", "", "", "", ""]
+                }]
+            }, {
+                "values": ["PLCopenXMLInterface", "", "AutomationMLInterfaceClassLib/AutomationMLBaseInterface/ExternalDataConnector", "", ""]
+            }, {
+                "values": ["ExternalDataReference", "", "AutomationMLInterfaceClassLib/AutomationMLBaseInterface/ExternalDataConnector", "", ""],
+                "Attr": [{
+                    "values": ["MIMEType", "", "xs:string", "", "", "", "", "", ""]
+                }]
+            }]
+        }, {
+            "values": ["Communication", "", "AutomationMLInterfaceClassLib/AutomationMLBaseInterface", "", ""],
+            "IC": [{
+                "values": ["SignalInterface", "", "AutomationMLInterfaceClassLib/AutomationMLBaseInterface/Communication", "", ""]
+            }]
+        }]
+    }]
+}, {
+    "values": ["PPRICL", "", "", "", "0", ""],
+    "IC": [{
+        "values": ["ProductProcessRelation", "", "AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector", "", ""],
+        "Attr": [{
+            "values": ["InOut", "", "xs:string", "", "", "", "Product is input or output of process", "", ""]
+        }]
+    }, {
+        "values": ["ProcessRessourceRelation", "", "AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector", "", ""]
+    }]
+}], "RCL": [{
+    "values": ["AutomationMLBaseRoleClassLib", "", "", "Automation Markup Language Base Role Class Library - Part 1", "2.10.0"],
+    "RC": [{
+        "values": ["AutomationMLBaseRole", "", "", "state", ""],
+        "RC": [{
+            "values": ["Group", "", "AutomationMLBaseRoleClassLib/AutomationMLBaseRole", "", ""],
+            "Attr": [{
+                "values": ["AssociatedFacet", "", "xs:string", "", "", "", "", "", ""]
+            }]
+        }, {
+            "values": ["Facet", "", "AutomationMLBaseRoleClassLib/AutomationMLBaseRole", "", ""]
+        }, {
+            "values": ["Resource", "", "AutomationMLBaseRoleClassLib/AutomationMLBaseRole", "", ""]
+        }, {
+            "values": ["Product", "", "AutomationMLBaseRoleClassLib/AutomationMLBaseRole", "", ""]
+        }, {
+            "values": ["Process", "", "AutomationMLBaseRoleClassLib/AutomationMLBaseRole", "", ""]
+        }, {
+            "values": ["Structure", "", "AutomationMLBaseRoleClassLib/AutomationMLBaseRole", "", ""],
+            "RC": [{
+                "values": ["ProductStructure", "", "AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Structure", "", ""]
+            }, {
+                "values": ["ProcessStructure", "", "AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Structure", "", ""]
+            }, {
+                "values": ["ResourceStructure", "", "AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Structure", "", ""]
+            }]
+        }, {
+            "values": ["ExternalData", "", "AutomationMLBaseRoleClassLib/AutomationMLBaseRole", "", ""]
+        }]
+    }]
+}, {
+    "values": ["PPRRCL", "", "", "", "0"],
+    "RC": [{
+        "values": ["PPRRessouce", "", "AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Resource", "", ""],
+        "Attr": [{
+            "values": ["Vendor", "", "xs:string", "", "", "", "Vendor of the resource", "", ""]
+        }, {
+            "values": ["Type", "", "xs:string", "", "", "", "Type of the resource", "", ""]
+        }],
+        "EI": [{
+            "values": ["ExecutableProcess", "e5d317d0-99f4-4cea-84e1-7d46c36af643", "PPRICL/ProcessRessourceRelation", ""]
+        }]
+    }, {
+        "values": ["PPRProduct", "", "AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Product", "", ""],
+        "Attr": [{
+            "values": ["Vendor", "", "xs:string", "", "", "", "Vendor of the resource", "", ""]
+        }, {
+            "values": ["Type", "", "xs:string", "", "", "", "Type of the resource", "", ""]
+        }],
+        "EI": [{
+            "values": ["RelatedProcess", "f7ca2468-bc8a-4f26-8b63-e21fd9f01cb7", "PPRICL/ProductProcessRelation", ""],
+            "Attr": [{
+                "values": ["InOut", "", "xs:string", "", "", "", "Product is input or output of process", "", ""]
+            }]
+        }]
+    }, {
+        "values": ["PPRProcess", "", "AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Process", "", ""],
+        "Attr": [{
+            "values": ["Type", "", "xs:string", "", "", "", "Type of the resource", "", ""]
+        }, {
+            "values": ["Duration", "", "xs:int", "s", "", "", "Duration of the process", "", ""]
+        }],
+        "EI": [{
+            "values": ["RelatedProduct", "1a5b7e37-6224-4399-8462-41485804d81f", "PPRICL/ProductProcessRelation", ""],
+            "Attr": [{
+                "values": ["InOut", "", "xs:string", "", "", "", "Product is input or output of process", "", ""]
+            }]
+        }, {
+            "values": ["RelatedRessource", "d3b3a515-c5f8-49be-b3aa-6c72074d3d44", "PPRICL/ProcessRessourceRelation", ""]
+        }]
+    }]
+}], "SUCL": [{
+    "values": ["PPRSUCL", "", "0"],
+    "SUC": [{
+        "values": ["PPRRessouceSUC", "27e9ad20-3da6-4cc3-9e7a-9da776229f58", "", ""],
+        "Attr": [{
+            "values": ["Vendor", "", "xs:string", "", "", "", "Vendor of the resource", "", ""]
+        }, {
+            "values": ["Type", "", "xs:string", "", "", "", "Type of the resource", "", ""]
+        }],
+        "EI": [{
+            "values": ["ExecutableProcess", "2e7ffcb4-bd4c-4890-ac8b-c7c45a3cf7c1", "PPRICL/ProcessRessourceRelation", ""]
+        }],
+        "SRC": [{
+            "values": ["PPRRCL/PPRRessouce"]
+        }]
+    }, {
+        "values": ["PPRProcessSUC", "ed85f5f7-8a91-4e92-a882-cdd0a22d6f82", "", ""],
+        "Attr": [{
+            "values": ["Type", "", "xs:string", "", "", "", "Type of the resource", "", ""]
+        }, {
+            "values": ["Duration", "", "xs:int", "s", "", "", "Duration of the process", "", ""]
+        }],
+        "EI": [{
+            "values": ["RelatedProduct", "f3f9151f-0984-4c16-8a53-8f05d0ea40cc", "PPRICL/ProductProcessRelation", ""],
+            "Attr": [{
+                "values": ["InOut", "", "xs:string", "", "", "", "Product is input or output of process", "", ""]
+            }]
+        }, {
+            "values": ["RelatedRessource", "d8dde75c-00ca-4f78-aa25-8a3d9f2e523e", "PPRICL/ProcessRessourceRelation", ""]
+        }],
+        "SRC": [{
+            "values": ["PPRRCL/PPRProcess"]
+        }]
+    }, {
+        "values": ["PPRProductSUC", "5717a780-5d5e-4970-8513-e45202f8114b", "", ""],
+        "Attr": [{
+            "values": ["Vendor", "", "xs:string", "", "", "", "Vendor of the resource", "", ""]
+        }, {
+            "values": ["Type", "", "xs:string", "", "", "", "Type of the resource", "", ""]
+        }],
+        "EI": [{
+            "values": ["RelatedProcess", "b21ef251-f5a1-4133-99db-24eab80eab83", "PPRICL/ProductProcessRelation", ""],
+            "Attr": [{
+                "values": ["InOut", "", "xs:string", "", "", "", "Product is input or output of process", "", ""]
+            }]
+        }],
+        "SRC": [{
+            "values": ["PPRRCL/PPRProduct"]
+        }]
+    }]
+}],
+
+"keys": {
+    "AdditionalData": [],
+    "AdditionalInformation": ["AutomationMLVersion", "UserDefined", "AMLV"],
+    "Attribute": ["Name", "ID", "AttributeDataType", "Unit", "ChangeMode", "Value", "Description", "DefaultValue", "RefSemantic"],
+    "AttributeNameMapping": [],
+    "AutomationMLVersion": [],
+    "CAEXFile": ["FileName", "SchemaVersion", "xmlns:xsi", "xsi:noNamespaceSchemaLocation"],
+    "Constraint": ["name"],
+    "NominalScaledType": ["RequiredValue"],
+    "OrdinalScaledType": ["RequiredValue"],
+    "UnknownType": ["RequiredValue"],
+    "ExternalInterface": ["Name", "ID", "RefBaseClassPath", "ChangeMode"],
+    "InstanceHierarchy": ["Name", "ID", "Version"],
+    "InterfaceClass": ["Name", "ID", "RefBaseClassPath", "Description", "AdditionalInformation"],
+    "InterfaceClassLib": ["Name", "ID", "ChangeMode", "Description", "Version", "Copyright"],
+    "InterfaceNameMapping": [],
+
+    "keys": {
+        ...,
+        "InternalElement": ["Name", "ID", "RefBaseSystemUnitPath", "ChangeMode", "Description", "Version", "Copyright", "AdditionalInformation"],
+        ...
+    }
+
+
+    "InternalLink": ["Name", "ID", "RefPartnerSideA", "RefPartnerSideB"],
+    "MappingObject": [],
+    "RefSemantic": ["CorrespondingAttributePath",
+        "ChangeMode"
+    ],
+    "Revision": ["RefRoleClassPath", "RevisionDate", "OldVersion", "NewVersion", "AuthorName", "Comment"],
+    "RoleClass": ["Name", "ID", "RefBaseClassPath", "ChangeMode", "Revision"],
+    "RoleClassLib": ["Name", "ID", "ChangeMode", "Description", "Version"],
+    "RoleRequirement": [],
+    "RoleRequirements": ["RefBaseRoleClassPath"],
+    "SupportedRoleClass": ["RefRoleClassPath"],
+    "SystemUnitClass": ["Name", "ID", "RefBaseClassPath", "ChangeMode"],
+    "SystemUnitClassLib": ["Name", "ID", "Version"],
+    "WriterHeader": ["WriterName", "WriterID", "WriterVendor", "WriterVendorURL", "WriterVersion", "WriterRelease", "LastWritingDateTime", "WriterProjectTitle", "WriterProjectID"]
+}
+}

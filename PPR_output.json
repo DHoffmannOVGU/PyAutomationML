@@ -1,0 +1,533 @@
+{
+    "FileName": "PPRExample_AMLJsonWG.aml",
+    "SchemaVersion": "2.15",
+    "AdditionalInformation": [{
+        "AutomationMLVersion": "2.0"
+    }, {
+        "WriterHeader": {
+            "WriterName": "AutomationML Editor",
+            "WriterID": "916578CA-FE0D-474E-A4FC-9E1719892369",
+            "WriterVendor": "AutomationML e.V.",
+            "WriterVendorURL": "www.AutomationML.org",
+            "WriterVersion": "5.3.3.0",
+            "WriterRelease": "5.3.3.0",
+            "LastWritingDateTime": "2022-05-25T12:09:42.7724342",
+            "WriterProjectTitle": "unspecified",
+            "WriterProjectID": "unspecified"
+        }
+    }],
+    "InstanceHierarchy": [{
+        "Name": "PPRExampleInstanceHierarchy",
+        "Version": "0",
+        "InternalElement": [{
+            "Name": "Project",
+            "ID": "788113b0-0a27-43dc-a1ac-287c57198a2a",
+            "ChangeMode": "change",
+            "Description": "This is the example priject used by AML Json WG to demonstrate the XML -> jsn mapping.",
+            "Version": "0.2",
+            "Copyright": "AML json WG",
+            "AdditionalInformation": "This is just an example of an additional information.",
+            "Revision": [{
+                "RevisionDate": "2022-05-25T12:06:49.8329934+02:00",
+                "OldVersion": "0.1",
+                "NewVersion": "0.2",
+                "AuthorName": "AML Json WG",
+                "Comment": "A comment is required"
+            }],
+            "RoleRequirements": [{
+                "RefBaseRoleClassPath": "AutomationMLBaseRoleClassLib/AutomationMLBaseRole"
+            }],
+
+
+            "InternalElement": [{
+                    "Name": "Screw",
+                    "ID": "ad5db25c-0f73-4e9f-8782-0ca28e319c43",
+                    "RefBaseSystemUnitPath": "PPRExampleSystemUnitClassLib/PPRProductSUC",
+                    "RoleRequirements": [{
+                        "RefBaseRoleClassPath": "PPRExampleRoleClassLib/PPRProduct"
+                    }],
+                    "Attribute": [{
+                        "Name": "Vendor",
+                        "AttributeDataType": "xs:string",
+                        "Value": "ScrewVendor",
+                        "Description": "Vendor of the resource"
+                    }, {
+                        "Name": "Type",
+                        "AttributeDataType": "xs:string",
+                        "Value": "M8",
+                        "Description": "Type of the resource"
+                    }],
+                    "ExternalInterface": [{
+                        "Name": "RelatedProcess",
+                        "ID": "92cb2e82-03c0-4b8a-9da7-e1c1bc5c488a",
+                        "RefBaseClassPath": "PPRExampleInterfaceClassLib/ProductProcessRelation",
+                        "Attribute": [{
+                            "Name": "InOut",
+                            "AttributeDataType": "xs:string",
+                            "Value": "IN",
+                            "Description": "Product is input or output of process"
+                        }]
+                    }]
+                },
+
+
+
+
+
+
+                {
+                    "Name": "Plate",
+                    "ID": "65a6ac4c-e383-442f-a01c-9e6f00219f6a",
+                    "RefBaseSystemUnitPath": "PPRExampleSystemUnitClassLib/PPRProductSUC",
+                    "RoleRequirements": [{
+                        "RefBaseRoleClassPath": "PPRExampleRoleClassLib/PPRProduct"
+                    }],
+                    "Attribute": [{
+                        "Name": "Vendor",
+                        "AttributeDataType": "xs:string",
+                        "Value": "PlateVendor",
+                        "Description": "Vendor of the resource"
+                    }, {
+                        "Name": "Type",
+                        "AttributeDataType": "xs:string",
+                        "Value": "116mm-Steel",
+                        "Description": "Type of the resource"
+                    }],
+                    "ExternalInterface": [{
+                        "Name": "RelatedProcess",
+                        "ID": "73e89349-a9d2-4a1a-8eea-0a729e98b01f",
+                        "RefBaseClassPath": "PPRExampleInterfaceClassLib/ProductProcessRelation",
+                        "Attribute": [{
+                            "Name": "InOut",
+                            "AttributeDataType": "xs:string",
+                            "Value": "IN",
+                            "Description": "Product is input or output of process"
+                        }]
+                    }]
+                },
+
+
+
+                {
+                    "Name": "PlateWithScrew",
+                    "ID": "9cd21d7a-8d2a-4332-8fce-97711c9013e7",
+                    "RefBaseSystemUnitPath": "PPRExampleSystemUnitClassLib/PPRProductSUC",
+                    "RoleRequirements": [{
+                        "RefBaseRoleClassPath": "PPRExampleRoleClassLib/PPRProduct"
+                    }],
+                    "Attribute": [{
+                        "Name": "Vendor",
+                        "AttributeDataType": "xs:string",
+                        "Value": "OwnCompany",
+                        "Description": "Vendor of the resource"
+                    }, {
+                        "Name": "Type",
+                        "AttributeDataType": "xs:string",
+                        "Value": "OwnProduct",
+                        "Description": "Type of the resource"
+                    }],
+                    "ExternalInterface": [{
+                        "Name": "RelatedProcess",
+                        "ID": "92fccf8a-58e8-442b-8e06-f250469f34ef",
+                        "RefBaseClassPath": "PPRExampleInterfaceClassLib/ProductProcessRelation",
+                        "Attribute": [{
+                            "Name": "InOut",
+                            "AttributeDataType": "xs:string",
+                            "Value": "OUT",
+                            "Description": "Product is input or output of process"
+                        }]
+                    }]
+                }, {
+                    "Name": "Screwing",
+                    "ID": "d9181c32-c952-46da-b6c3-ff1bcdf00539",
+                    "RefBaseSystemUnitPath": "PPRExampleSystemUnitClassLib/PPRProcessSUC",
+                    "RoleRequirements": [{
+                        "RefBaseRoleClassPath": "PPRExampleRoleClassLib/PPRProcess"
+                    }],
+                    "Attribute": [{
+                        "Name": "Type",
+                        "AttributeDataType": "xs:string",
+                        "Value": "ForceControlledScrewing",
+                        "Description": "Type of the resource"
+                    }, {
+                        "Name": "Duration",
+                        "AttributeDataType": "xs:int",
+                        "Unit": "s",
+                        "Description": "Duration of the process"
+                    }],
+                    "ExternalInterface": [{
+                        "Name": "Output",
+                        "ID": "29adbe5b-25e4-4920-8539-8a48cb961e55",
+                        "RefBaseClassPath": "PPRExampleInterfaceClassLib/ProductProcessRelation",
+                        "Attribute": [{
+                            "Name": "InOut",
+                            "AttributeDataType": "xs:string",
+                            "Value": "OUT",
+                            "Description": "Product is input or output of process"
+                        }]
+                    }, {
+                        "Name": "RelatedRessource",
+                        "ID": "372b6a92-79ea-4caf-8c09-20fa76db176d",
+                        "RefBaseClassPath": "PPRExampleInterfaceClassLib/ProcessRessourceRelation"
+                    }, {
+                        "Name": "Input1",
+                        "ID": "087b34a1-8c19-4dc3-aa70-8ca474d4b61a",
+                        "RefBaseClassPath": "PPRExampleInterfaceClassLib/ProductProcessRelation",
+                        "Attribute": [{
+                            "Name": "InOut",
+                            "AttributeDataType": "xs:string",
+                            "Value": "IN",
+                            "Description": "Product is input or output of process"
+                        }]
+                    }, {
+                        "Name": "Input2",
+                        "ID": "ccd19d4f-f12c-45ca-8652-08533ebfacdd",
+                        "RefBaseClassPath": "PPRExampleInterfaceClassLib/ProductProcessRelation",
+                        "Attribute": [{
+                            "Name": "InOut",
+                            "AttributeDataType": "xs:string",
+                            "Value": "IN",
+                            "Description": "Product is input or output of process"
+                        }]
+                    }]
+                }, {
+                    "Name": "Screwdriver",
+                    "ID": "a8512afa-10d9-429f-a640-8e8926f0c6bd",
+                    "RefBaseSystemUnitPath": "PPRExampleSystemUnitClassLib/PPRRessouceSUC",
+                    "RoleRequirements": [{
+                        "RefBaseRoleClassPath": "PPRExampleRoleClassLib/PPRRessouce"
+                    }],
+                    "Attribute": [{
+                        "Name": "Vendor",
+                        "AttributeDataType": "xs:string",
+                        "Value": "ScrewDriverVendor",
+                        "Description": "Vendor of the resource"
+                    }, {
+                        "Name": "Type",
+                        "AttributeDataType": "xs:string",
+                        "Value": "Electrical Screw Driver",
+                        "Description": "Type of the resource"
+                    }],
+                    "ExternalInterface": [{
+                        "Name": "ExecutableProcess",
+                        "ID": "b609a480-b575-4c33-8ad9-72c59c5841a3",
+                        "RefBaseClassPath": "PPRExampleInterfaceClassLib/ProcessRessourceRelation"
+                    }]
+                }
+            ],
+            "InternalLink": [{
+                "Name": "UsedScrew",
+                "RefPartnerSideA": "ad5db25c-0f73-4e9f-8782-0ca28e319c43:RelatedProcess",
+                "RefPartnerSideB": "d9181c32-c952-46da-b6c3-ff1bcdf00539:Input1"
+            }, {
+                "Name": "UsedPlate",
+                "RefPartnerSideA": "65a6ac4c-e383-442f-a01c-9e6f00219f6a:RelatedProcess",
+                "RefPartnerSideB": "d9181c32-c952-46da-b6c3-ff1bcdf00539:Input2"
+            }, {
+                "Name": "ProcessResult",
+                "RefPartnerSideA": "d9181c32-c952-46da-b6c3-ff1bcdf00539:Output",
+                "RefPartnerSideB": "9cd21d7a-8d2a-4332-8fce-97711c9013e7:RelatedProcess"
+            }, {
+                "Name": "RessourceLink",
+                "RefPartnerSideA": "a8512afa-10d9-429f-a640-8e8926f0c6bd:ExecutableProcess",
+                "RefPartnerSideB": "d9181c32-c952-46da-b6c3-ff1bcdf00539:RelatedRessource"
+            }]
+        }]
+    }],
+    "InterfaceClassLib": [{
+        "Name": "AutomationMLInterfaceClassLib",
+        "ChangeMode": "state",
+        "Description": "Standard Automation Markup Language Interface Class Library - Part 1 Content ",
+        "Version": "2.10",
+        "Copyright": "AutomationML e.V.",
+        "InterfaceClass": [{
+            "Name": "AutomationMLBaseInterface",
+            "InterfaceClass": [{
+                "Name": "Order",
+                "RefBaseClassPath": "AutomationMLInterfaceClassLib/AutomationMLBaseInterface",
+                "Attribute": [{
+                    "Name": "Direction",
+                    "AttributeDataType": "xs:string",
+                    "DefaultValue": "InOut",
+                    "Constraint": {
+                        "NominalScaledType": [{
+                            "RequiredValue": ["In", "Out", "InOut"]
+                        }]
+                    }
+                }]
+            }, {
+                "Name": "Port",
+                "RefBaseClassPath": "AutomationMLInterfaceClassLib/AutomationMLBaseInterface",
+                "Attribute": [{
+                    "Name": "Direction",
+                    "AttributeDataType": "xs:string",
+                    "Constraint": {
+                        "NominalScaledType": [{
+                            "RequiredValue": ["In", "Out", "InOut"]
+                        }]
+                    }
+                }, {
+                    "Name": "Cardinality",
+                    "Attribute": [{
+                        "Name": "MinOccur",
+                        "AttributeDataType": "xs:unsignedInt"
+                    }, {
+                        "Name": "MaxOccur",
+                        "AttributeDataType": "xs:unsignedInt"
+                    }]
+                }, {
+                    "Name": "Category",
+                    "AttributeDataType": "xs:string"
+                }]
+            }, {
+                "Name": "PPRConnector",
+                "RefBaseClassPath": "AutomationMLInterfaceClassLib/AutomationMLBaseInterface"
+            }, {
+                "Name": "ExternalDataConnector",
+                "RefBaseClassPath": "AutomationMLInterfaceClassLib/AutomationMLBaseInterface",
+                "Attribute": [{
+                    "Name": "refURI",
+                    "AttributeDataType": "xs:anyURI"
+                }],
+                "InterfaceClass": [{
+                    "Name": "COLLADAInterface",
+                    "RefBaseClassPath": "AutomationMLInterfaceClassLib/AutomationMLBaseInterface/ExternalDataConnector",
+                    "Attribute": [{
+                        "Name": "refType",
+                        "AttributeDataType": "xs:string"
+                    }, {
+                        "Name": "target",
+                        "AttributeDataType": "xs:token"
+                    }]
+                }, {
+                    "Name": "PLCopenXMLInterface",
+                    "RefBaseClassPath": "AutomationMLInterfaceClassLib/AutomationMLBaseInterface/ExternalDataConnector"
+                }, {
+                    "Name": "ExternalDataReference",
+                    "RefBaseClassPath": "AutomationMLInterfaceClassLib/AutomationMLBaseInterface/ExternalDataConnector",
+                    "Attribute": [{
+                        "Name": "MIMEType",
+                        "AttributeDataType": "xs:string"
+                    }]
+                }]
+            }, {
+                "Name": "Communication",
+                "RefBaseClassPath": "AutomationMLInterfaceClassLib/AutomationMLBaseInterface",
+                "InterfaceClass": [{
+                    "Name": "SignalInterface",
+                    "RefBaseClassPath": "AutomationMLInterfaceClassLib/AutomationMLBaseInterface/Communication"
+                }]
+            }]
+        }]
+    }, {
+        "Name": "PPRExampleInterfaceClassLib",
+        "Version": "0",
+        "InterfaceClass": [{
+            "Name": "ProductProcessRelation",
+            "RefBaseClassPath": "AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector",
+            "Attribute": [{
+                "Name": "InOut",
+                "AttributeDataType": "xs:string",
+                "Description": "Product is input or output of process"
+            }]
+        }, {
+            "Name": "ProcessRessourceRelation",
+            "RefBaseClassPath": "AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector"
+        }]
+    }],
+    "RoleClassLib": [{
+        "Name": "AutomationMLBaseRoleClassLib",
+        "Description": "Automation Markup Language Base Role Class Library - Part 1",
+        "Version": "2.10.0",
+        "RoleClass": [{
+            "Name": "AutomationMLBaseRole",
+            "ChangeMode": "state",
+            "RoleClass": [{
+                "Name": "Group",
+                "RefBaseClassPath": "AutomationMLBaseRoleClassLib/AutomationMLBaseRole",
+                "Attribute": [{
+                    "Name": "AssociatedFacet",
+                    "AttributeDataType": "xs:string"
+                }]
+            }, {
+                "Name": "Facet",
+                "RefBaseClassPath": "AutomationMLBaseRoleClassLib/AutomationMLBaseRole"
+            }, {
+                "Name": "Resource",
+                "RefBaseClassPath": "AutomationMLBaseRoleClassLib/AutomationMLBaseRole"
+            }, {
+                "Name": "Product",
+                "RefBaseClassPath": "AutomationMLBaseRoleClassLib/AutomationMLBaseRole"
+            }, {
+                "Name": "Process",
+                "RefBaseClassPath": "AutomationMLBaseRoleClassLib/AutomationMLBaseRole"
+            }, {
+                "Name": "Structure",
+                "RefBaseClassPath": "AutomationMLBaseRoleClassLib/AutomationMLBaseRole",
+                "RoleClass": [{
+                    "Name": "ProductStructure",
+                    "RefBaseClassPath": "AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Structure"
+                }, {
+                    "Name": "ProcessStructure",
+                    "RefBaseClassPath": "AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Structure"
+                }, {
+                    "Name": "ResourceStructure",
+                    "RefBaseClassPath": "AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Structure"
+                }]
+            }, {
+                "Name": "ExternalData",
+                "RefBaseClassPath": "AutomationMLBaseRoleClassLib/AutomationMLBaseRole"
+            }]
+        }]
+    }, {
+        "Name": "PPRExampleRoleClassLib",
+        "Version": "0",
+        "RoleClass": [{
+            "Name": "PPRRessouce",
+            "RefBaseClassPath": "AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Resource",
+            "Attribute": [{
+                "Name": "Vendor",
+                "AttributeDataType": "xs:string",
+                "Description": "Vendor of the resource"
+            }, {
+                "Name": "Type",
+                "AttributeDataType": "xs:string",
+                "Description": "Type of the resource"
+            }],
+            "ExternalInterface": [{
+                "Name": "ExecutableProcess",
+                "ID": "e5d317d0-99f4-4cea-84e1-7d46c36af643",
+                "RefBaseClassPath": "PPRExampleInterfaceClassLib/ProcessRessourceRelation"
+            }]
+        }, {
+            "Name": "PPRProduct",
+            "RefBaseClassPath": "AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Product",
+            "Attribute": [{
+                "Name": "Vendor",
+                "AttributeDataType": "xs:string",
+                "Description": "Vendor of the resource"
+            }, {
+                "Name": "Type",
+                "AttributeDataType": "xs:string",
+                "Description": "Type of the resource"
+            }],
+            "ExternalInterface": [{
+                "Name": "RelatedProcess",
+                "ID": "f7ca2468-bc8a-4f26-8b63-e21fd9f01cb7",
+                "RefBaseClassPath": "PPRExampleInterfaceClassLib/ProductProcessRelation",
+                "Attribute": [{
+                    "Name": "InOut",
+                    "AttributeDataType": "xs:string",
+                    "Description": "Product is input or output of process"
+                }]
+            }]
+        }, {
+            "Name": "PPRProcess",
+            "RefBaseClassPath": "AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Process",
+            "Attribute": [{
+                "Name": "Type",
+                "AttributeDataType": "xs:string",
+                "Description": "Type of the resource"
+            }, {
+                "Name": "Duration",
+                "AttributeDataType": "xs:int",
+                "Unit": "s",
+                "Description": "Duration of the process"
+            }],
+            "ExternalInterface": [{
+                "Name": "RelatedProduct",
+                "ID": "1a5b7e37-6224-4399-8462-41485804d81f",
+                "RefBaseClassPath": "PPRExampleInterfaceClassLib/ProductProcessRelation",
+                "Attribute": [{
+                    "Name": "InOut",
+                    "AttributeDataType": "xs:string",
+                    "Description": "Product is input or output of process"
+                }]
+            }, {
+                "Name": "RelatedRessource",
+                "ID": "d3b3a515-c5f8-49be-b3aa-6c72074d3d44",
+                "RefBaseClassPath": "PPRExampleInterfaceClassLib/ProcessRessourceRelation"
+            }]
+        }]
+    }],
+    "SystemUnitClassLib": [{
+        "Name": "PPRExampleSystemUnitClassLib",
+        "Version": "0",
+        "SystemUnitClass": [{
+            "Name": "PPRRessouceSUC",
+            "ID": "27e9ad20-3da6-4cc3-9e7a-9da776229f58",
+            "Attribute": [{
+                "Name": "Vendor",
+                "AttributeDataType": "xs:string",
+                "Description": "Vendor of the resource"
+            }, {
+                "Name": "Type",
+                "AttributeDataType": "xs:string",
+                "Description": "Type of the resource"
+            }],
+            "ExternalInterface": [{
+                "Name": "ExecutableProcess",
+                "ID": "2e7ffcb4-bd4c-4890-ac8b-c7c45a3cf7c1",
+                "RefBaseClassPath": "PPRExampleInterfaceClassLib/ProcessRessourceRelation"
+            }],
+            "SupportedRoleClass": [{
+                "RefRoleClassPath": "PPRExampleRoleClassLib/PPRRessouce"
+            }]
+        }, {
+            "Name": "PPRProcessSUC",
+            "ID": "ed85f5f7-8a91-4e92-a882-cdd0a22d6f82",
+            "Attribute": [{
+                "Name": "Type",
+                "AttributeDataType": "xs:string",
+                "Description": "Type of the resource"
+            }, {
+                "Name": "Duration",
+                "AttributeDataType": "xs:int",
+                "Unit": "s",
+                "Description": "Duration of the process"
+            }],
+            "ExternalInterface": [{
+                "Name": "RelatedProduct",
+                "ID": "f3f9151f-0984-4c16-8a53-8f05d0ea40cc",
+                "RefBaseClassPath": "PPRExampleInterfaceClassLib/ProductProcessRelation",
+                "Attribute": [{
+                    "Name": "InOut",
+                    "AttributeDataType": "xs:string",
+                    "Description": "Product is input or output of process"
+                }]
+            }, {
+                "Name": "RelatedRessource",
+                "ID": "d8dde75c-00ca-4f78-aa25-8a3d9f2e523e",
+                "RefBaseClassPath": "PPRExampleInterfaceClassLib/ProcessRessourceRelation"
+            }],
+            "SupportedRoleClass": [{
+                "RefRoleClassPath": "PPRExampleRoleClassLib/PPRProcess"
+            }]
+        }, {
+            "Name": "PPRProductSUC",
+            "ID": "5717a780-5d5e-4970-8513-e45202f8114b",
+            "Attribute": [{
+                "Name": "Vendor",
+                "AttributeDataType": "xs:string",
+                "Description": "Vendor of the resource"
+            }, {
+                "Name": "Type",
+                "AttributeDataType": "xs:string",
+                "Description": "Type of the resource"
+            }],
+            "ExternalInterface": [{
+                "Name": "RelatedProcess",
+                "ID": "b21ef251-f5a1-4133-99db-24eab80eab83",
+                "RefBaseClassPath": "PPRExampleInterfaceClassLib/ProductProcessRelation",
+                "Attribute": [{
+                    "Name": "InOut",
+                    "AttributeDataType": "xs:string",
+                    "Description": "Product is input or output of process"
+                }]
+            }],
+            "SupportedRoleClass": [{
+                "RefRoleClassPath": "PPRExampleRoleClassLib/PPRProduct"
+            }]
+        }]
+    }]
+}
