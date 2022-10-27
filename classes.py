@@ -1,44 +1,4 @@
-<<<<<<< HEAD
-from  lxml import etree
-from classes import CAEXFile
-from utils import load_aml_file, load_common_concept, create_key_dictionary, convert_aml_to_dict, store_dict_as_json, store_dict_as_yaml
-
-if __name__ == '__main__':
-  common_concept:dict = load_common_concept("common_concept.json")
-  aml_file = load_aml_file(r'./Examples/FLC.aml')
-
-  #Create Dictionary
-  json_dct = convert_aml_to_dict(aml_file, common_concept)
-  #Create Normal AML-JSON File
-  store_dict_as_json(json_dct, "output.json", indent=None)
-
-  compressed_json_dct = convert_aml_to_dict(aml_file, common_concept, compressed=True)
-  keys = create_key_dictionary(common_concept)
-  compressed_json_dct["keys"]= keys 
-  
-  #Create Compressed AML-JSON File
-  store_dict_as_json(compressed_json_dct, "output_global.json", indent=None)
-
-  #Create YAML-File because we can
-  store_dict_as_yaml(json_dct, "meta.yaml")
-  store_dict_as_yaml(compressed_json_dct, "compressed_meta.yaml")
-
-  #Create AML from JSON
-  test_file = CAEXFile()
-  test_file.create_from_json(common_concept, json_dct)
-  doc = etree.ElementTree(test_file)
-  print("Created element tree")
-  outFile = open('output.xml', 'w')
-  doc.write('output.xml', xml_declaration=False, encoding='utf-16') 
-  print("Created aml")
-=======
-from venv import create
 from lxml import etree
-import random
-import uuid
-import json
-import yaml
-
 
 class MyLookup(etree.CustomElementClassLookup):
   def lookup(self, node_type, document, namespace, name):
@@ -74,8 +34,13 @@ class MyLookup(etree.CustomElementClassLookup):
       return CAEXFile
     else:
       return AMLElement  # pass on to (default) fallback
+      
 parser = etree.XMLParser()
 parser.set_element_class_lookup(MyLookup())
+
+## Base class
+
+from lxml import etree
 
 class AMLElement(etree.ElementBase):
   def _init(self): 
@@ -151,18 +116,17 @@ class AMLElement(etree.ElementBase):
 
     #Step 2: Append Children
     for child in child_list:
-      abbreviated_child = common_concept[child]["abbreviation"]
+      child_name = common_concept[child]["abbreviation"]
       actual_children_list = self.findall(child) #As there can be multiple children with the same tag we need to find them all
       child_is_multivalued = common_concept[child]["multi"]
       if child_is_multivalued and actual_children_list: #if child is multivalued and actual children of that type exist:
-        aml_dict[abbreviated_child] = []
+        aml_dict[child_name] = []
         for kid in actual_children_list:
-          aml_dict[abbreviated_child].append(kid.global_to_json(common_concept))
+          aml_dict[child_name].append(kid.global_to_json(common_concept))
       elif actual_children_list: #if single valued and actual children of that type exist:
-        aml_dict[abbreviated_child] = actual_children_list[0].global_to_json(common_concept) #use only existing element in list as kid
+        aml_dict[child_name] = actual_children_list[0].global_to_json(common_concept) #use only existing element in list as kid
 
     return aml_dict
-
 
 
   def set_dict_properties(self, common_concept, json_dict):
@@ -172,15 +136,12 @@ class AMLElement(etree.ElementBase):
     attribute_list = object_concept["attributes"]
     child_list = object_concept["children"]
 
-    #Augment dict from local() so that only needed values are included
-    for key, value in json_dict.items():
-      if value is None or value == "" or value == "None":
-        json_dict.pop(key)
-
     #Put arguments from local into the appropriate category -> either tag or attribute of lxml with corresponding tag
     for key, value in json_dict.items():
+      if value is None or value == "" or value == "None":
+        pass
       # Step 1: Key-Tags as Tags
-      if key in tag_list:
+      elif key in tag_list:
         self.set(key, value)
       # Step 2: Key-Attribute as Attributes
       elif key in attribute_list:
@@ -211,6 +172,7 @@ class AMLElement(etree.ElementBase):
   #ToDO Finish factory method
   def addElement(self, key, **dict): # generic Adder
     pass
+
 
 ## Object Classes
 
@@ -311,108 +273,3 @@ class InterfaceNameMapping(AMLElement):
 class RoleRequirement(AMLElement):
   def _init(self):
     super(RoleRequirement, self)._init()
-
-
-#nesting = None
-#nesting = "local"
-nesting = "global"
-
-abbreviate=True
-
-def load_common_concept(path):
-  with open(path) as f:
-    common_concept = json.load(f)
-  return common_concept
-
-
-def load_aml_file(path):
-  aml_file= etree.parse(path, parser)
-  aml_file= aml_file.getroot()
-  return aml_file  
-
-class AML_Dict(dict):
-  def create_from_aml(self, aml_file, common_concept):
-    pass
-
-  def create_from_dict(self, dict):
-    pass
-
-  def store_as_json(self, output_path):
-    with open(output_path, "w", encoding="utf-8") as outfile:
-      json.dump(json_dct, outfile, ensure_ascii=False)
-  
-
-def create_key_dictionary():
-  key_dict = {}
-  #Create Keys
-  for object_element in common_concept:
-    object_concept = common_concept[object_element]
-    tag_list = object_concept["tags"] #Tags of the element
-    attribute_list = object_concept["attributes"] #Tags of the element
-    key_dict[object_element]= list(tag_list) + list(attribute_list) 
-  return key_dict
-
-
-if __name__ == '__main__':
-  common_concept = load_common_concept("config.json")
-  aml_file = load_aml_file(r'./Examples/Testanlage.aml')
-
-  #Create Normal AML-JSON File
-  json_dct= aml_file.to_json(common_concept)
-  with open("output.json", "w", encoding="utf-8") as outfile:
-      json.dump(json_dct, outfile, ensure_ascii=False, indent=1)
-  print("Created normal file")
-
-  
-  #Create Compressed AML-JSON File
-  compressed_json_dct= aml_file.global_to_json(common_concept)
-  keys = create_key_dictionary()
-  compressed_json_dct["keys"]= keys 
-  with open("output_global.json", "w", encoding="utf-8") as outfile:
-    json.dump(compressed_json_dct, outfile, ensure_ascii=False)
-  print("Created compressed file")
-
-  #Create YAML-File because we can
-  f = open('meta.yaml', 'w+')
-  yaml.dump(json_dct, f, allow_unicode=True)
-  print("Created normal file")
-  f = open('compressed_meta.yaml', 'w+')
-  yaml.dump(compressed_json_dct, f, allow_unicode=True)
-  print("Created compressed file")
-
-  #Create AML from JSON
-  test_file = CAEXFile()
-  test_file.create_from_json(common_concept, json_dct)
-  doc = etree.ElementTree(test_file)
-  print("Created element tree")
-  outFile = open('output.xml', 'w')
-  doc.write('output.xml', xml_declaration=False, encoding='utf-16') 
-  print("Created aml")
-
-  with open("config.json") as f:
-      common_concept = json.load(f)
-  aml_file= etree.parse(r'./Examples/Testbed.aml', parser)
-  aml_file= aml_file.getroot()  
-  json_dct= aml_file.to_json(common_concept)
-  with open("Testbed.json", "w", encoding="utf-8") as outfile:
-      json.dump(json_dct, outfile, ensure_ascii=False)
-  compressed_json_dct= aml_file.global_to_json(common_concept)
-  #with open("keys.json") as f:
-  #  keys = json.load(f)
-  #compressed_json_dct["keys"]= keys 
-  #Step 3: Append Key-Dictionary
-  f = open('meta.yaml', 'w+')
-  yaml.dump(json_dct, f, allow_unicode=True)
-  f = open('compressed_meta.yaml', 'w+')
-  yaml.dump(compressed_json_dct, f, allow_unicode=True)
-
-  with open("Testbed_global.json", "w", encoding="utf-8") as outfile:
-      json.dump(json_dct, outfile, ensure_ascii=False, indent=1)
-  test_file = CAEXFile()
-  test_file.create_from_json(common_concept, json_dct)
-
-  doc = etree.ElementTree(test_file)
-  outFile = open('Testbed.xml', 'w')
-  doc.write('Testbed.xml', xml_declaration=False, encoding='utf-16') 
-
->>>>>>> main
