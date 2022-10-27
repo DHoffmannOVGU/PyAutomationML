@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 from  lxml import etree
 from classes import CAEXFile
 from utils import load_aml_file, load_common_concept, create_key_dictionary, convert_aml_to_dict, store_dict_as_json, store_dict_as_yaml
